@@ -102,12 +102,3 @@ Este projeto utiliza as seguintes bibliotecas:
 - [xlsxwriter](https://xlsxwriter.readthedocs.io/)
 
 ---
-
-## Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para:
-
-- Abrir issues para relatar problemas ou sugerir melhorias.
-- Enviar pull requests com suas contribuições.
-
----
