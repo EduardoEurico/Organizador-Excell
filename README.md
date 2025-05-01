@@ -15,10 +15,8 @@ Este projeto é uma aplicação em Python que permite a manipulação de arquivo
 
 ```
 app/
-   ├── __pycache__/
-   ├── addGrafico.py
+   
    ├── converterEmPlanilha.py
-   ├── gastos_por_historico.xlsx
    ├── main.py
    ├── organizar.py
    ├── somarColunas.py
@@ -97,7 +95,6 @@ Certifique-se de ter o Python e as bibliotecas necessárias instaladas:
 Este projeto utiliza as seguintes bibliotecas:
 
 - [pandas](https://pandas.pydata.org/)
-- [matplotlib](https://matplotlib.org/)
 - [tkinter](https://docs.python.org/3/library/tkinter.html)
 - [xlsxwriter](https://xlsxwriter.readthedocs.io/)
 
