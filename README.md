@@ -1,9 +1,9 @@
 
-# 💰 Extrato Financeiro - Analisador e Organizador de Gastos
+# Extrato Financeiro - Analisador e Organizador de Gastos
 
 Este projeto é uma ferramenta interativa em Python para auxiliar na organização, análise e filtragem de extratos bancários, transformando arquivos CSV em planilhas Excel formatadas e permitindo a extração de informações úteis como somatórios por intervalo, por tipo de gasto e por mês.
 
-## 🧩 Funcionalidades
+## Funcionalidades
 
 - Converter extratos CSV em planilhas Excel formatadas
 - Somar gastos dentro de um intervalo de linhas
@@ -22,7 +22,7 @@ Este projeto é uma ferramenta interativa em Python para auxiliar na organizaç�
 ├── gastos_por_historico.xlsx   # Exemplo de planilha Excel (usado para testes)
 ```
 
-## ⚙️ Requisitos
+## Requisitos
 
 - Python 3.8 ou superior
 
@@ -38,7 +38,7 @@ pip install pandas openpyxl xlsxwriter
 sudo apt install python3-tk
 ```
 
-## 🚀 Como Executar
+## Como Executar
 
 1. Clone este repositório ou baixe os arquivos:
 
@@ -76,7 +76,7 @@ python main.py
 - **organizar.py**: Permite filtrar a planilha por mês e ano, criando um novo arquivo Excel com os dados filtrados.
 - **gastos_por_historico.xlsx**: Exemplo de planilha que pode ser usada para testar os módulos `somarColunas` e `organizar`.
 
-## 🗂 Saída dos Arquivos
+## Saída dos Arquivos
 
 Todos os arquivos gerados (planilhas Excel) são salvos automaticamente na pasta:
 
