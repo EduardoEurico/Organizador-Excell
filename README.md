@@ -1,101 +1,90 @@
-# Documentação do Projeto
 
-## Visão Geral
+# 💰 Extrato Financeiro - Analisador e Organizador de Gastos
 
-Este projeto é uma aplicação em Python que permite a manipulação de arquivos Excel e CSV para realizar diversas operações, como:
+Este projeto é uma ferramenta interativa em Python para auxiliar na organização, análise e filtragem de extratos bancários, transformando arquivos CSV em planilhas Excel formatadas e permitindo a extração de informações úteis como somatórios por intervalo, por tipo de gasto e por mês.
 
-- Conversão de extratos.
-- Soma de gastos por intervalo de linhas.
-- Soma de gastos por histórico.
-- Criação de planilhas filtradas por mês.
+## 🧩 Funcionalidades
 
-## Estrutura do Projeto
+- Converter extratos CSV em planilhas Excel formatadas
+- Somar gastos dentro de um intervalo de linhas
+- Agrupar e somar gastos por tipo de "Histórico"
+- Filtrar e gerar planilhas por mês/ano específico
+- Interface simples por terminal
 
-### Diretórios e Arquivos
+## 📁 Estrutura do Projeto
 
 ```
-app/
-   
-   ├── converterEmPlanilha.py
-   ├── main.py
-   ├── organizar.py
-   ├── somarColunas.py
+.
+├── main.py                      # Menu principal para interação com o usuário
+├── converterEmPlanilha.py      # Converte CSV bancário para Excel formatado
+├── somarColunas.py             # Funções para somar valores por intervalo ou histórico
+├── organizar.py                # Gera planilhas filtradas por mês
+├── gastos_por_historico.xlsx   # Exemplo de planilha Excel (usado para testes)
 ```
 
-### Descrição dos Arquivos
+## ⚙️ Requisitos
 
-#### `main.py`
+- Python 3.8 ou superior
 
-Arquivo principal que contém o menu da aplicação. Ele permite ao usuário escolher entre diferentes operações.
+### Bibliotecas:
 
-**Funções principais:**
+```bash
+pip install pandas openpyxl xlsxwriter
+```
 
-- `menu()`: Exibe o menu principal e chama as funções apropriadas com base na escolha do usuário.
+**Obs:** O script usa Tkinter para seleção de arquivos com janelas gráficas. No Linux, você pode precisar instalar com:
 
-#### `converterEmPlanilha.py`
+```bash
+sudo apt install python3-tk
+```
 
-Arquivo responsável pela conversão de arquivos CSV para planilhas Excel.
+## 🚀 Como Executar
 
-**Funções principais:**
+1. Clone este repositório ou baixe os arquivos:
 
-- `selecionar_arquivo_csv()`: Abre uma janela para o usuário selecionar um arquivo CSV.
-- `converter_para_excel()`: Converte o arquivo CSV selecionado em uma planilha Excel.
+```bash
+git clone https://github.com/seu-usuario/extrato-analisador.git
+cd extrato-analisador
+```
 
-#### `somarColunas.py`
+2. Instale as dependências (veja acima).
 
-Arquivo responsável por somar gastos em arquivos Excel.
+3. Execute o programa principal:
 
-**Funções principais:**
+```bash
+python main.py
+```
 
-- `selecionar_arquivo()`: Abre uma janela para o usuário selecionar um arquivo Excel.
-- `somar_gastos_por_intervalo(caminho_excel: str, linha_inicio: int, linha_fim: int)`: Soma os gastos em um intervalo de linhas especificado.
-- `somar_gastos_por_historico(caminho_excel: str, max_linhas: int = 1)`: Soma os gastos agrupados por histórico e cria um arquivo Excel com os resultados.
+4. Use o menu para selecionar a funcionalidade desejada:
 
-#### `organizar.py`
+```
+===== MENU PRINCIPAL =====
+1 - Converter extrato para planilha
+2 - Somar gastos por intervalo de linhas
+3 - Somar gastos por histórico
+4 - Criar planilha por mês
+5 - Sair
+```
 
-Arquivo que permite criar planilhas filtradas por mês e ano.
+## 📌 Descrição dos Arquivos
 
-**Funções principais:**
+- **main.py**: Menu principal que conecta todas as funcionalidades.
+- **converterEmPlanilha.py**: Lê um CSV bancário e transforma em Excel formatado, corrigindo números com vírgula.
+- **somarColunas.py**:
+  - `somar_gastos_por_intervalo`: Soma valores negativos (gastos) entre duas linhas da planilha.
+  - `somar_gastos_por_historico`: Agrupa os gastos por "Histórico" e cria novas colunas com a soma.
+- **organizar.py**: Permite filtrar a planilha por mês e ano, criando um novo arquivo Excel com os dados filtrados.
+- **gastos_por_historico.xlsx**: Exemplo de planilha que pode ser usada para testar os módulos `somarColunas` e `organizar`.
 
-- `selecionar_arquivo()`: Abre uma janela para o usuário selecionar um arquivo Excel.
-- `criar_planilha_por_mes(caminho_excel: str)`: Cria uma planilha filtrada por mês e ano especificados pelo usuário.
+## 🗂 Saída dos Arquivos
 
-#### `addGrafico.py`
+Todos os arquivos gerados (planilhas Excel) são salvos automaticamente na pasta:
 
-Arquivo atualmente vazio, reservado para futuras implementações de funcionalidades relacionadas a gráficos.
+```bash
+~/Extratos/
+```
 
----
+## 🧠 Observações
 
-## Como Executar
-
-### Pré-requisitos
-
-Certifique-se de ter o Python e as bibliotecas necessárias instaladas:
-
-- `pandas`
-- `matplotlib`
-- `tkinter`
-- `xlsxwriter`
-
-### Passos para execução
-
-1. Navegue até o diretório `app`:
-   ```bash
-   cd app
-   ```
-2. Execute o arquivo `main.py`:
-   ```bash
-   python main.py
-   ```
-
----
-
-## Dependências
-
-Este projeto utiliza as seguintes bibliotecas:
-
-- [pandas](https://pandas.pydata.org/)
-- [tkinter](https://docs.python.org/3/library/tkinter.html)
-- [xlsxwriter](https://xlsxwriter.readthedocs.io/)
-
----
+- As planilhas precisam conter as colunas obrigatórias: "Valor", "Histórico" e "Data Lançamento" dependendo da funcionalidade usada.
+- A interface gráfica para seleção de arquivos exige que o Python tenha suporte a Tkinter.
